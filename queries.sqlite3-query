@@ -1,0 +1,26 @@
+-- database: ./database.db
+
+SELECT * FROM ChasersID;
+
+INSERT INTO ChasersID (Nickname, DateJoined, Speciality) VALUES("The Beast", 2009, "Maths");
+
+INSERT INTO ChasersID(Nickname, DateJoined, Speciality) VALUES("The Dark Destroyer", 2009, "Legal & History");
+
+INSERT INTO ChasersID(Nickname, DateJoined, Speciality) VALUES("The Governess", 2010, "English Literature");
+
+INSERT INTO ChasersID(Nickname, DateJoined, Speciality) VALUES("The Sinnerman", 2011, "Medicine and Popular Culture");
+
+INSERT INTO ChasersID(Nickname, DateJoined, Speciality) VALUES("The Vixen", 2015, "Journalism and Media");
+
+INSERT INTO ChasersID(Nickname, DateJoined, Speciality) VALUES("The Menace", 2020, "Science and Gameshows");
+
+-- All Chasers --
+SELECT * FROM ChasersID;
+-- All Chasers and Names --
+SELECT Chasers.Name, ChasersID.Name FROM Chasers
+JOIN Chasers ON Chasers.ChasersID=ChasersID.Chasers;
+
+-- Chasers of one name -- 
+SELECT ChasersID.name FROM Chasers
+JOIN Chasers ON Chasers.ChasersID=Chasers.ChasersID
+WHERE Chasers.Name = "The Beast";
