@@ -14,13 +14,17 @@ INSERT INTO ChasersID(Nickname, DateJoined, Speciality) VALUES("The Vixen", 2015
 
 INSERT INTO ChasersID(Nickname, DateJoined, Speciality) VALUES("The Menace", 2020, "Science and Gameshows");
 
--- All Chasers --
-SELECT * FROM ChasersID;
--- All Chasers and Names --
-SELECT Chasers.Name, ChasersID.Name FROM Chasers
-JOIN Chasers ON Chasers.ChasersID=ChasersID.Chasers;
+-- all chasers --
+SELECT * FROM Names;
+-- all chasers and names --
+SELECT ChasersID.Name,Names.Nickname FROM Names
+JOIN ChasersID ON Names.NameID=Names.ChasersID;
 
--- Chasers of one name -- 
-SELECT ChasersID.name FROM Chasers
-JOIN Chasers ON Chasers.ChasersID=Chasers.ChasersID
-WHERE Chasers.Name = "The Beast";
+-- just id, nickname, speciality, and image URL -- 
+SELECT Names.NameID,ChasersID.Name,Names.Speciality,Names.ImageURL
+FROM Names
+JOIN ChasersID ON ChasersID.ChaserID=Names.ChasersID;
+
+-- just one chaser based on id --
+SELECT * FROM Names JOIN ChasersID ON ChasersID.ChaserID=Names.ChasersID
+WHERE Names.NameID = 2;
