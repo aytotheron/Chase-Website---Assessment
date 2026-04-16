@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chase</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body class="w3-container">
+    <!-- Shared Headbar -->
+    <header class="w3-container w3-padding-32">
+       <h1> The Chase </h1>
+       
+    </header>
+    <!-- Shared Navibar-->
+    <nav class="w3-bar w3-blue-grey">
+        <a href="/" class="w3-bar-item w3-button">Home</a>
+        <a href="episodes.html" class="w3-bar-item w3-button">Memorable Episodes</a>
+        <a href="faq.html" class="w3-bar-item w3-button">FAQ</a>
+    </nav>
+    <p><b>Meet your elite professionals!</b></p>
+    
+     {% block body %}
+     {% endblock %}
+     <footer>
+        <p><b>Please note:</b> This is just a fan website and not the actual thing.</p>
+    </footer>
+</body>
+</html>

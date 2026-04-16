@@ -1,4 +1,4 @@
-from flask import Flask, g
+from flask import Flask, g, render_template
 import sqlite3
 
 DATABASE = 'database.db'
@@ -20,7 +20,7 @@ def close_connection(exception):
 
 def query_db(query, args=(), one=False):
     cur = get_db().execute(query, args)
-    rv = cur.fetcha11()
+    rv = cur.fetchall()
     cur.close()
     return (rv[0] if rv else None) if one else rv
 
@@ -33,7 +33,7 @@ def home():
     FROM Names
     JOIN ChasersID ON ChasersID.ChaserID=Names.ChasersID;"""
     results = query_db(sql)
-    return str(results)
+    return render_template("home.html", results=results)
 
 @app.route("/names/<int:id>")
 def names(id):

@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block body %}
+<!-- home page goes here -->
+ <!-- a 3 column grid -->
+  <div class="three-column">
+    {% for chasers in results %}
+    <div class="w3-card-4">
+        <!-- the name and the image -->
+         <h1>{{ chasers[1]}} {{ chasers[2]}}</h1>
+         <img src="{{ chasers[3]}}" alt="{{ chasers[2]}}">
+    </div>
+    
+    {% endfor %}
+  </div>
+{% endblock %}
