@@ -26,7 +26,7 @@ def query_db(query, args=(), one=False):
 
    
 @app.route('/')
-def home():
+def home(): 
     #home page - just the ID, Nickname, Speciality and ImageURL
     sql = """
     SELECT Names.NameID,ChasersID.Name,Names.Speciality,Names.ImageURL
@@ -34,6 +34,7 @@ def home():
     JOIN ChasersID ON ChasersID.ChaserID=Names.ChasersID;"""
     results = query_db(sql)
     return render_template("home.html", results=results)
+
 
 @app.route("/names/<int:id>")
 def names(id):
@@ -43,6 +44,15 @@ def names(id):
     WHERE Names.NameID = ?;"""
     result = query_db(sql,(id,),True)
     return str(result)
+
+#add pages here
+@app.route ('/episodes')
+def episodes():
+    return render_template('episodes.html')
+
+@app.route ('/faq')
+def faq():
+    return render_template('faq.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
