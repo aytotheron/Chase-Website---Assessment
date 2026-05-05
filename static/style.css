@@ -24,11 +24,29 @@ h1 {
     text-align: center;
 } 
 
-.video-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;     
-  height: 50vh;
-  gap: 15px;
-  margin-bottom: 20px;           
+.video-row{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    padding: 40px;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+.video-card {
+    text-align: center;
+    width: 100%;
+}
+
+.video-card iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: none;
+}
+
+.video-card p {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    line-height: 1.4;
 }
